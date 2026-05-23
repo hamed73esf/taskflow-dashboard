@@ -40,6 +40,7 @@ Technologies Used
 
 Project Structure
 
+```txt
 project/
 │
 ├── assets/
@@ -72,6 +73,7 @@ project/
 │
 ├── index.html
 └── login.html
+```
 
 ⸻
 
