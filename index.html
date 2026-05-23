@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/lightMode.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <script src="./js/app.js" type="module" defer></script>
+    <script src="./js/isLoggedIn.js"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <img
+        class="logo"
+        src="./assets/images/e1a14b73-54bd-4e6a-8684-4b191fabbdb9.jpg"
+        alt="logo"
+      />
+      <div class="middle-sidebar">
+        <button class="btn dashboard">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="currentColor"
+              d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM200 256a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zM144 432c0-44.2 35.8-80 80-80l64 0c44.2 0 80 35.8 80 80 0 8.8-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16z"
+            />
+          </svg>
+          Dashboard
+        </button>
+        <button class="btn add-task">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              style="
+                fill: var(--fa-secondary-color, currentColor);
+                opacity: var(--fa-secondary-opacity, 0.4);
+              "
+              d=""
+            />
+            <path
+              style="
+                fill: var(--fa-primary-color, currentColor);
+                opacity: var(--fa-primary-opacity, 1);
+              "
+              d="M248 56c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 176-176 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l176 0 0 176c0 13.3 10.7 24 24 24s24-10.7 24-24l0-176 176 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-176 0 0-176z"
+            />
+          </svg>
+          Add Task
+        </button>
+        <button class="btn project">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"
+          >
+            <path
+              fill="currentColor"
+              d="M128.1 0c-35.3 0-64 28.7-64 64l0 384c0 35.3 28.7 64 64 64l146.2 0 10.9-54.5c4.3-21.7 15-41.6 30.6-57.2l132.2-132.2 0-97.5c0-17-6.7-33.3-18.7-45.3L322.8 18.7C310.8 6.7 294.5 0 277.6 0L128.1 0zM389.6 176l-93.5 0c-13.3 0-24-10.7-24-24l0-93.5 117.5 117.5zM332.3 466.9l-11.9 59.6c-.2 .9-.3 1.9-.3 2.9 0 8 6.5 14.6 14.6 14.6 1 0 1.9-.1 2.9-.3l59.6-11.9c12.4-2.5 23.8-8.6 32.7-17.5l118.9-118.9-80-80-118.9 118.9c-8.9 8.9-15 20.3-17.5 32.7zm267.8-123c22.1-22.1 22.1-57.9 0-80s-57.9-22.1-80 0l-28.8 28.8 80 80 28.8-28.8z"
+            />
+          </svg>
+          Project
+          <svg
+            class="svg-open-close active-project"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+          >
+            <path
+              fill="currentColor"
+              d="M214.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-9.2-9.2-11.9-22.9-6.9-34.9S19.1 256 32 256l96 0 0-176c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 176 96 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-160 160z"
+            />
+          </svg>
+
+          <svg
+            class="svg-open-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+          >
+            <path
+              fill="currentColor"
+              d="M169.4 41.4c12.5-12.5 32.8-12.5 45.3 0l160 160c9.2 9.2 11.9 22.9 6.9 34.9S364.9 256 352 256l-96 0 0 176c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-176-96 0c-12.9 0-24.6-7.8-29.6-19.8S.2 210.5 9.4 201.4l160-160z"
+            />
+          </svg>
+        </button>
+        <ul class="project-list"></ul>
+        <button class="btn priority">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+          >
+            <path
+              fill="currentColor"
+              d="M373.2 165.1c1.2 2.3 3.3 3.8 5.8 4.2L562.3 199 431.5 330.7c-1.8 1.8-2.6 4.4-2.2 6.9L457.7 521 292 437.3c-2.3-1.1-5-1.1-7.2 0L119.1 521 147.5 337.6c.4-2.5-.4-5.1-2.2-6.9L14.5 199 197.8 169.3c1.9-.3 3.6-1.3 4.8-2.7l1.1-1.5 84.8-165.1 84.8 165.1zM260.5 194.3c-10.5 20.3-29.9 34.5-52.5 38.2l-60.3 9.8 43 43.3c16.1 16.2 23.6 39.2 20.1 61.8l-9.3 60.3 54.5-27.5 3.9-1.8c19.5-8.5 41.9-7.9 61.1 1.8l54.5 27.5-9.3-60.3c-3.5-22.6 3.9-45.6 20.1-61.8l43-43.3-60.2-9.8c-22.6-3.7-42.1-17.8-52.5-38.2l-27.9-54.3-27.9 54.3z"
+            />
+          </svg>
+          Priority
+          <svg
+            class="svg-open-close active-priority"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+          >
+            <path
+              fill="currentColor"
+              d="M214.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-9.2-9.2-11.9-22.9-6.9-34.9S19.1 256 32 256l96 0 0-176c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 176 96 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-160 160z"
+            />
+          </svg>
+
+          <svg
+            class="svg-open-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+          >
+            <path
+              fill="currentColor"
+              d="M169.4 41.4c12.5-12.5 32.8-12.5 45.3 0l160 160c9.2 9.2 11.9 22.9 6.9 34.9S364.9 256 352 256l-96 0 0 176c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-176-96 0c-12.9 0-24.6-7.8-29.6-19.8S.2 210.5 9.4 201.4l160-160z"
+            />
+          </svg>
+        </button>
+        <ul class="priority-list">
+          <li class="priority-item">High</li>
+          <li class="priority-item">Medium</li>
+          <li class="priority-item">Low</li>
+        </ul>
+      </div>
+      <div class="bottom-sidebar">
+        <button class="btn color-mode-btn">
+          <svg
+            class="color-mode-icone active-mode-color"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+          >
+            <path
+              fill="currentColor"
+              d="M317.1-10.2c-18.8-23.8-55.2-20.6-73.4 10-13.5 15.7-30.9 38.1-48.1 48.4-63.1 3.7-144.6-20.9-120.5 78.6 3.3 18.6 2.2 31.3-.1 47.6-1.7 1.9-3.3 3.8-4.9 5.6-40.6 48.3-116.2 75.5-31.6 134.5 12.6 9.2 21.3 15.6 29.8 25.5 5.1 155 9.6 123.9 148.6 128.6 66.3 80.8 85.3 77.7 151.8-.8 27.9-10.2 52.9-15 75.7-10.1 23.3 5 48.5-11.5 49.6-38.1 .4-10.7 1.4-23.5 2.4-36.7 1.6-18.2 2.3-37.5 3-53 42-42.1 107.6-79.4 28.4-126.9 .2 .1 .2 .1-.1-.1-10.5-9.2-24.9-28.1-33.3-39 4.6-117.9 1.4-112.6-113.8-113.2-16.8-14.3-51.9-45.9-63.5-60.9l0 0zM262 75.6c8-8.2 16-17.3 23.2-25.8 27.1 23 56.3 63.4 86.5 64.9 18.5 0 39.6-.1 59.2 .7l-.6 55.9c1.1 23.5 13.7 30.3 30.3 53.1 8.7 10.4 16.3 19.5 27 28.4-27.4 29.5-54.9 38.8-52.2 75.5-.7 17.1-2.1 42.7-3.9 63.5-33.6-1.2-65.3 8.2-92.1 18.6-20.9 9.6-29.2 32.4-47.4 45.9-11.9-11-29.4-34.4-37.5-40.5-7.5-7.2-17.2-11-27.2-11.1l-91.1-1c-.5-8.2-1.2-17.3-1.8-26.2-1.6-18.1-1.7-29.9-2.8-46.8-1.6-28.2-35.8-53.5-54.9-67.6 17.1-14.5 30.9-28.3 43.6-43.2 27.4-27.1 21.7-66.9 17.5-107.1 20.6-.6 41.6-.6 60-.6 29.7-1.6 45.6-18.8 64.3-36.6l0 0zM365.1 316.3c64.3-90.5-53.6-214.4-141.1-146-41.9 37.1-57.2 103.3-24 150.1 41.9 56.9 125.1 46.6 165.1-4.1zM263.3 220.8c32.2-26 70.6 35.1 50.1 57.7-7.8 15-51.5 23-60.4 6-15-18.9-3.8-48.1 10.3-63.7z"
+            />
+          </svg>
+          <svg
+            class="color-mode-icone"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="currentColor"
+              d="M375 406.7c-32.7 25.9-74.1 41.3-119 41.3-106 0-192-86-192-192 0-72.2 39.8-135.1 98.7-167.9-1.8 13-2.7 26.4-2.7 39.9 0 133.8 91.3 246.4 215 278.7zm48.1-56c-112-12.4-199.1-107.3-199.1-222.6 0-44.1 12.6-83.2 32-115.4 2.6-4.2 5.2-8.4 8.1-12.4-2.7-.1-5.4-.1-8.1-.1-24.5 0-48.3 3.5-70.7 9.9-107 30.7-185.3 129.3-185.3 246.1 0 141.4 114.6 256 256 256 80.9 0 153-37.5 199.9-96.1 16.5-20.6 29.9-43.8 39.4-68.9-15.3 3.3-31.1 5-47.4 5-8.4 0-16.7-.5-24.9-1.4z"
+            />
+          </svg>
+          <span>Light Mode</span>
+        </button>
+        <button class="btn logout">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="currentColor"
+              d="M288 0c0-17.7-14.3-32-32-32S224-17.7 224 0l0 256c0 17.7 14.3 32 32 32s32-14.3 32-32L288 0zM146.3 98.4c14.5-10.1 18-30.1 7.9-44.6s-30.1-18-44.6-7.9C43.4 92.1 0 169 0 256 0 397.4 114.6 512 256 512S512 397.4 512 256c0-87-43.4-163.9-109.7-210.1-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6c49.8 34.8 82.3 92.4 82.3 157.6 0 106-86 192-192 192S64 362 64 256c0-65.2 32.5-122.9 82.3-157.6z"
+            />
+          </svg>
+          logout
+        </button>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <button class="menu-btn">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              fill="currentColor"
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
+        <h3 class="page-title">Dashboard</h3>
+        <form class="search-box">
+          <input
+            class="search"
+            type="text"
+            placeholder="Search your task title..."
+          />
+          <button type="submit" class="search-submit">
+            <svg
+              class="svg-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+            >
+              <path
+                fill="currentColor"
+                d="M471.7 240.9c16.6-224.6-289.7-348.9-402.8-135.5-115 214.5 103 445.2 318.9 296.9 39.9 34 75 76 111.7 111.9 29.6 29.5 74.8-15.4 45.3-45.2l-36.8-36.9c-19.8-24.5-44.3-47-66.3-67.2-2.6-2.4-5.2-4.7-7.7-7 25.9-36.5 34.1-80.9 37.7-117.1zM204.1 65c97.9-36.9 216 69.1 203.9 169.6 .5 106.3-104.4 163.6-196 147.2-145-38.7-143.7-266.9-7.8-316.8z"
+              />
+            </svg>
+          </button>
+        </form>
+        <div class="user-notificatin">
+          <svg
+            class="svg-icon notification"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              fill="currentColor"
+              d="M224 0c-17.7 0-32 14.3-32 32l0 3.2C119 50 64 114.6 64 192l0 21.7c0 48.1-16.4 94.8-46.4 132.4L7.8 358.3C2.7 364.6 0 372.4 0 380.5 0 400.1 15.9 416 35.5 416l376.9 0c19.6 0 35.5-15.9 35.5-35.5 0-8.1-2.7-15.9-7.8-22.2l-9.8-12.2C400.4 308.5 384 261.8 384 213.7l0-21.7c0-77.4-55-142-128-156.8l0-3.2c0-17.7-14.3-32-32-32zM162 464c7.1 27.6 32.2 48 62 48s54.9-20.4 62-48l-124 0z"
+            />
+          </svg>
+          <button class="user-account">
+            <svg
+              class="svg-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M288 320c88.4 0 160 71.6 160 160l0 32-448 0 0-32c0-88.4 71.6-160 160-160l128 0zm-64-64a128 128 0 1 1 0-256 128 128 0 1 1 0 256z"
+              />
+            </svg>
+            <span class="user-account-name"></span>
+          </button>
+        </div>
+      </header>
+      <section class="board">
+        <div class="column todo-column" data-status="todo">
+          <h3>ToDo</h3>
+          <ul class="cardList-ul"></ul>
+        </div>
+        <div class="column doing-column" data-status="doing">
+          <h3>Doing</h3>
+          <ul class="cardList-ul"></ul>
+        </div>
+        <div class="column done-column" data-status="done">
+          <h3>Done</h3>
+          <ul class="cardList-ul"></ul>
+        </div>
+      </section>
+    </main>
+    <div class="modal info-task-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 class="modal-title info-modal-title"></h2>
+          <button class="close-modal">X</button>
+        </div>
+        <div class="task-info">
+          <div class="task-box">
+            <span class="task-label">Project</span>
+            <p class="info-modal-project"></p>
+          </div>
+          <div class="task-box">
+            <span class="task-label">Description</span>
+            <p class="info-modal-description"></p>
+          </div>
+          <div class="task-details">
+            <div class="detail-item info-modal-priority"></div>
+            <div class="detail-item info-modal-status"></div>
+            <div class="detail-item date info-modal-date"></div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="edit-task-btn">Edit Task</button>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal edit-task-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 class="modal-title">Edit Task</h2>
+          <button class="close-modal">X</button>
+        </div>
+        <form class="modal-form">
+          <div class="form-group">
+            <label>Title</label>
+            <input
+              class="edit-modal-title"
+              type="text"
+              placeholder="Task title"
+            />
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea
+              maxlength="120"
+              class="edit-modal-description"
+              placeholder="Task description"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Project</label>
+            <input
+              class="edit-modal-project"
+              type="text"
+              placeholder="Project name"
+            />
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <select class="edit-modal-priority">
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select class="edit-modal-status">
+              <option value="todo">ToDo</option>
+              <option value="doing">Doing</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input class="edit-modal-date" type="date" />
+          </div>
+          <div class="modal-actions">
+            <button class="save-btn" type="submit">Save Changes</button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal add-task-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2 class="modal-title">Add Task</h2>
+          <button class="close-modal close-add-task-modal">X</button>
+        </div>
+        <form class="modal-form">
+          <div class="form-group">
+            <label>Title</label>
+            <input
+              required
+              class="add-modal-title"
+              type="text"
+              placeholder="Task title"
+            />
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea
+              maxlength="120"
+              required
+              class="add-modal-description"
+              placeholder="Task description"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label>Project</label>
+            <input
+              required
+              class="add-modal-project"
+              type="text"
+              placeholder="Project name"
+            />
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <select class="add-modal-priority">
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select class="add-modal-status">
+              <option value="todo">ToDo</option>
+              <option value="doing">Doing</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input required class="add-modal-date" type="date" />
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="save-btn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

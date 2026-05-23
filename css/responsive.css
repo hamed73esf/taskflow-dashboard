@@ -1,0 +1,279 @@
+/* ========================================= */
+/* 1200px */
+/* ========================================= */
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .column {
+    height: calc(100vh - 110px);
+  }
+
+  .search-box {
+    width: 45%;
+  }
+}
+
+/* ========================================= */
+/* 992px */
+/* ========================================= */
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .header {
+    padding: 0 10px;
+  }
+
+  .search-box {
+    width: 50%;
+  }
+
+  .user-account-name {
+    display: none;
+  }
+
+  .column h3 {
+    font-size: 16px;
+  }
+
+  .cardList-title {
+    font-size: 15px;
+  }
+
+  .cardList-project,
+  .cardList-description,
+  .cardList-bottom {
+    font-size: 12px;
+  }
+
+  .cardList-li {
+    padding: 8px;
+  }
+}
+
+/* ========================================= */
+/* 768px TABLET */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  /* ========================= */
+  /* sidebar */
+  /* ========================= */
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100vh;
+    z-index: 2000;
+    transition: left 0.3s ease;
+    justify-content: flex-start;
+    gap: 25px;
+    padding-top: 20px;
+  }
+
+  .sidebar.active-sidebar {
+    left: 0;
+  }
+
+  /* ========================= */
+  /* menu button */
+  /* ========================= */
+
+  .menu-btn {
+    display: block;
+  }
+
+  /* ========================= */
+  /* header */
+  /* ========================= */
+
+  .header {
+    height: 70px;
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .page-title {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 120px;
+    position: relative;
+    display: flex;
+  }
+
+  .search {
+    width: 95%;
+    min-width: 0;
+  }
+
+  .search-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .notification {
+    padding: 0 10px;
+  }
+
+  /* ========================= */
+  /* board */
+  /* ========================= */
+
+  .board {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: calc(100vh - 70px);
+    align-items: flex-start;
+    scroll-snap-type: x mandatory;
+  }
+
+  .column {
+    min-width: 280px;
+    max-width: 280px;
+    flex-shrink: 0;
+    height: calc(100vh - 95px);
+    margin: 0;
+    scroll-snap-align: start;
+  }
+
+  .column h3 {
+    position: sticky;
+    top: 0;
+    background: inherit;
+    z-index: 2;
+  }
+
+  /* ========================= */
+  /* cards */
+  /* ========================= */
+
+  .cardList-li {
+    min-height: 65px;
+    padding: 8px;
+    margin: 8px;
+  }
+
+  .cardList-title {
+    font-size: 14px;
+  }
+
+  .cardList-project,
+  .cardList-description,
+  .cardList-bottom {
+    font-size: 11px;
+  }
+
+  /* ========================= */
+  /* modals */
+  /* ========================= */
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-card {
+    width: 100%;
+    max-width: 400px;
+    max-height: 85vh;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .close-modal {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+    right: 16px;
+  }
+
+  .task-details {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detail-item {
+    text-align: center;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .edit-task-btn,
+  .save-btn,
+  .delete-btn,
+  .cancel-btn {
+    width: 94%;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+}
+
+/* ========================================= */
+/* 400px SMALL DEVICES */
+/* ========================================= */
+
+@media (max-width: 400px) {
+  .column {
+    min-width: 220px;
+    max-width: 220px;
+  }
+
+  .search {
+    font-size: 12px;
+  }
+
+  .modal-card {
+    padding: 14px;
+  }
+
+  .task-box {
+    padding: 10px;
+  }
+
+  .cardList-title {
+    font-size: 12px;
+  }
+}

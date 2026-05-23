@@ -1,0 +1,70 @@
+/*global style */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+}
+button {
+  all: unset;
+}
+.container {
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b2e2f;
+  color: rgb(225, 225, 225);
+}
+.container p {
+  padding-top: 10px;
+  font-size: 13px;
+  color: rgba(113, 114, 114, 0.415);
+  cursor: default;
+}
+.login-form {
+  min-width: 250px;
+  width: 25%;
+  padding: 30px;
+  background: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.login-form h1 {
+  color: #1e4d4f;
+  font-size: 25px;
+  margin-bottom: 10px;
+  cursor: default;
+}
+label {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 5px 5px 0px;
+}
+input {
+  background: rgb(225, 225, 225);
+  height: 25px;
+  outline: none;
+  border-radius: 5px;
+  margin: 5px 5px 5px 0px;
+}
+input:focus {
+  border: solid 2px #1c8288;
+}
+button {
+  border: rgba(255, 255, 255, 0) solid 2px;
+  padding: 10px 18px 10px 18px;
+  border-radius: 8px;
+  background: #133c3d;
+  margin-top: 10px;
+  cursor: pointer;
+}
+button:hover {
+  border: white solid 2px;
+}

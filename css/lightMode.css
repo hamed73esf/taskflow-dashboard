@@ -1,0 +1,96 @@
+body.light-mode .main-content {
+  background-color: #f5f7fa;
+}
+body.light-mode .sidebar {
+  background: #205758;
+}
+body.light-mode .dashboard {
+  color: #ffffff;
+}
+body.light-mode .btn {
+  color: white;
+}
+body.light-mode .btn:hover {
+  border: 1px solid rgba(255, 255, 255, 0.178);
+}
+body.light-mode .project-list {
+  color: #b8e2e2;
+}
+body.light-mode .priority-list {
+  color: #b8e2e2;
+}
+body.light-mode .header {
+  background: #ffffff;
+  color: #1e293b;
+  border-bottom: solid 2px #d6e4e5;
+}
+body.light-mode .search {
+  background: #ebf0f5;
+  color: #1e293b;
+  border-top: #1e293b solid 1px;
+  border-bottom: #1e293b solid 1px;
+  border-left: #1e293b solid 1px;
+}
+body.light-mode .search::placeholder {
+  color: #909193;
+}
+body.light-mode .search-submit {
+  background: #ebf0f5;
+  color: #1e293b;
+  border-top: #1e293b solid 1px;
+  border-bottom: #1e293b solid 1px;
+  border-right: #1e293b solid 1px;
+}
+body.light-mode .column {
+  background: #edf2f7;
+  border: solid 1px #1e293b;
+}
+body.light-mode .column h3 {
+  color: #1e293b;
+  border-bottom: 1px solid #1e293b;
+}
+body.light-mode .cardList-li {
+  color: #64748b;
+  border: solid 3px #0f172a;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+body.light-mode .cardList-li:hover {
+  transform: translateY(-2px);
+}
+
+body.light-mode .cardList-title {
+  color: #1e293b;
+}
+body.light-mode .modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+body.light-mode .modal-card {
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+body.light-mode .modal-title {
+  font-size: 28px;
+  color: #173f40;
+}
+body.light-mode .close-modal {
+  color: white;
+  background-color: #205758;
+}
+body.light-mode .close-modal:hover {
+  background: white;
+  color: #205758;
+  border: 1px solid #205758;
+}
+body.light-mode .task-box {
+  background: #edf0f2;
+}
+body.light-mode .form-group label {
+  color: #515e5e;
+}
+body.light-mode .form-group input,
+body.light-mode .form-group textarea,
+body.light-mode .form-group select {
+  border: 2px solid #c3dada;
+  background: #f3f7f7;
+}
